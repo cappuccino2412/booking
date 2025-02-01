@@ -15,6 +15,7 @@ exports.createProfile = async(req, res, next) => {
     //     email
     //   }
     // })
+    //it's me
     const profile = await prisma.profile.upsert({
       where: { clerkId: id},
       create: {
