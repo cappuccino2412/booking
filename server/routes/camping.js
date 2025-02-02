@@ -19,7 +19,7 @@ router.get('/camping/:id',readCamping)
 // @METHOD Post[Create]
 // @ACCESS Private
 
-router.post('/camping',createCamping)
+router.post('/camping',authCheck,createCamping)
     // res.json({title,price})     
 
 // @ENDPOINT http://localhost:5000/api/camping/:id

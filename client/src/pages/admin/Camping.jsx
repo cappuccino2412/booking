@@ -7,6 +7,9 @@ import Buttons from "@/components/form/Buttons";
 import SplitText from "@/components/ui/splitText";
 import CategoryInput from "@/components/form/CategoryInput";
 import MainMap from "@/components/map/MainMap";
+import { createCamping } from "@/api/camping";
+//clerk
+import {useAuth} from '@clerk/clerk-react'
 /*ReadMe*/
 /*
   register เป็นฟังก์ชันที่ใช้ผูก input ในฟอร์มกับ React Hook Form เพื่อให้สามารถควบคุมค่าของ input ได้
@@ -15,14 +18,23 @@ import MainMap from "@/components/map/MainMap";
   || = first true, && = first false
   */
 const Camping = () => {
+  const {getToken,userId} = useAuth()
   const { register, handleSubmit, formState, setValue } = useForm({
     resolver: zodResolver(campingSchema), //เรียกใช้ fn จาก shema
   });
   const { errors, isSubmitting } = formState; //เรียกใช้ fn จาก formState
-  console.log(isSubmitting); // กำลัง submit เป็น true ไม่ได้ submit เป็น false
+  // console.log(isSubmitting); // กำลัง submit เป็น true ไม่ได้ submit เป็น false
 
-  const eieiSubmit = async (data) => {
+  const hdlSubmit = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000)); //resolve คือการทำงานเสร็จแล้ว
+    const token = await(getToken())
+    createCamping(token,data)
+    .then((res)=>{
+      console.log(res.data)
+    })
+    .catch((err)=>{
+      console.log('API Error',err);
+    })
     console.log(data);
   };
 
@@ -41,7 +53,7 @@ const Camping = () => {
         />
       </h1>
       <div className="border p-8 rounded-md">
-        <form onSubmit={handleSubmit(eieiSubmit)}>
+        <form onSubmit={handleSubmit(hdlSubmit)}>
           <div className="grid md:grid-cols-2 gap-2">
             <FormInputs
               register={register}

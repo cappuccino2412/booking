@@ -32,7 +32,8 @@ exports.createProfile = async(req, res, next) => {
     })
 
     console.log("Hello create Profile Controller ");
-    res.json({ result:profile, msg: "Created Profile" });
+    const message = profile.createdAt === profile.updatedAt ?  "Created Profile Successfully" : "Updated Profile Successfully"
+    res.json({ result:profile, msg: message });
   } catch (error) {
     console.log(error.message);
     next(error); //ส่ง error ไปที่ middleware error
