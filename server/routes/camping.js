@@ -8,7 +8,7 @@ const {authCheck} = require('../middlewares/auth')
 // @ENDPOINT http://localhost:5000/api/camping
 // @METHOD GET[list all data]
 // @ACCESS Public
-router.get('/camping',authCheck,listCamping)
+router.get('/camping',listCamping)
 
 // @ENDPOINT http://localhost:5000/api/camping:id
 // @METHOD GET[read specifile]

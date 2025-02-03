@@ -1,27 +1,27 @@
 const prisma = require("../config/prisma");
 const renderError = require("../utils/renderError");
 
-exports.listCamping = (req, res, next) => {
+exports.listCamping = async(req, res, next) => {
   try {
     // console.log(a)
-    if (true) {
-      return renderError(404, "not found");
-    }
-    console.log("Hello list Controller ");
-    res.json({ msg: "Hello List controller" });
+    const campings = await prisma.landmark.findMany()
+    res.json({ result: campings });
   } catch (error) {
     console.log(error.message);
     next(error);
   }
 };
 
-exports.readCamping = (req, res, next) => {
+exports.readCamping = async(req, res, next) => {
   try {
-    // console.log(a)
-    if (true) {
-      return renderError(401, "Cannot read data");
+    const {id} = req.params;
+    console.log(id)
+   const campings = await prisma.landmark.findFirst({
+    where: {
+      id: Number(id)
     }
-    res.json({ meg: "Hello read Camping" });
+   })
+    res.json({ result: campings });
   } catch (error) {
     console.log(error.message);
     next(error);
