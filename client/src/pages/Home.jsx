@@ -1,3 +1,4 @@
+import MapHome from "@/components/map/MapHome";
 import { Button } from "@/components/ui/button";
 import {
   SignedIn,
@@ -11,11 +12,7 @@ import {
 const Home = () => {
   return (
     <>
-      Home
-      {/* <SignedIn>
-        <UserButton />
-        <SignOutButton />
-      </SignedIn> */}
+     <MapHome/>
     </>
   );
 };
