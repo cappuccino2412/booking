@@ -14,7 +14,7 @@ const FormInputs = (props) => {
         <Input
           {...register(name)}
           id={id}
-          autoComplete="off"
+          autoComplete="off" 
           type={type}
           placeholder={placeholder}
           //&& First false หากไม่ error จะส่งค่า undefined ออกมา
