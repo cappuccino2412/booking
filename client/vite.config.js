@@ -9,4 +9,10 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // รันภายนอก
+  server: {
+    host: "0.0.0.0", // อนุญาตให้เข้าถึงจากภายนอก
+    port: 5173
+  }
 })
+

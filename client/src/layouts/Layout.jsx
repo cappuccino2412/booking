@@ -3,8 +3,8 @@ import { Outlet } from "react-router"
 
 const Layout = () => {
   return (
-    <main className="container">
-        <Navbar/>
+    <main className="md:container">
+        <Navbar />
         <hr/>
         <Outlet/>
     </main>

@@ -5,7 +5,7 @@
 /* ... */
 @layer components {
   .container {
-    @apply px-8 mx-auto
+    @apply px-4 mx-auto
   }
 }
 

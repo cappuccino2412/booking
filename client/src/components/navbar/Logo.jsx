@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 const Logo = () => {
   return (
     <>
-      <Button asChild>
+      <Button className="hidden sm:block" asChild>
         <Link to="/">Logo</Link>
       </Button>
     </>

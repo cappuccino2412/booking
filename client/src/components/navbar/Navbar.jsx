@@ -5,8 +5,8 @@ import Searchbar from "./Searchbar";
 const Navbar = () => {
   return (
     <nav>
-      <div className="flex flex-col items-center p-6 sm:justify-between sm:flex-row gap-4">
-        <Logo/>
+      <div className="flex items-center p-6 justify-between sm:flex-row gap-4">
+        <Logo />
         <Searchbar/>
        <DropdownListManu/>
       </div>
